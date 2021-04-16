@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sigortam.Core\Sigortam.Core.csproj" />
+    <ProjectReference Include="..\Sigortam.DAL\Sigortam.DAL.csproj" />
+    <ProjectReference Include="..\Sigortam.Entities\Sigortam.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

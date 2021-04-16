@@ -1,8 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div id="get-offer" data-request-url="@Url.Action("GetOffer","Home")"></div>
+
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput">TCKN</label>
+                <input type="text" class="form-control" id="IdTckn" placeholder="yazınız..">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Plaka</label>
+                <input type="text" class="form-control" id="IdPlaka" placeholder="yazınız..">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Ruhsat Seri Kodu</label>
+                <input type="text" class="form-control" id="IdRuhsatSeriKodu" placeholder="yazınız..">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Ruhsat Seri No</label>
+                <input type="text" class="form-control" id="IdRuhsatSeriNo" placeholder="yazınız..">
+            </div>
+            <button type="button" onclick="getOffer()" class="btn btn-primary">Teklif Al</button>
+        </form>
+    </div>
+
 </div>
+
+
+
+@section Scripts {
+    <script src="~/js/offer.js"></script>
+}
