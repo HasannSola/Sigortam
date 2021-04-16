@@ -62,5 +62,30 @@ namespace Sigortam.UI.Controllers
                 });
             }
         }
+
+        [HttpPost]
+        public JsonResult GetUserInfo(User requestModel)
+        {
+            try
+            {
+
+                var user = _userManager.Get(c => c.StPlaka == requestModel.StPlaka && c.StTCKN == requestModel.StTCKN);
+                return Json((object)new
+                {
+                    data = user==null?new User():user,
+                    success = true,
+                    redirectUrl = "",
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json((object)new
+                {
+                    data = 0,
+                    message = "Hata oluştu :" + ex.Message.ToString(),
+                    success = false,
+                });
+            }
+        }
     }
 }

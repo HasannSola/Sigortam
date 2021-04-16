@@ -12,7 +12,7 @@ namespace Sigortam.DAL.Concrete
         {
             string connection = "";
             connection = @"Server=.; Database=Sigortam;Integrated Security=false; Persist Security Info=False; User ID=sa; Password=1; MultipleActiveResultSets=True";
-            //connection = @"Server=(localdb)\MSSQLLocalDB; Database=CrmMs; Persist Security Info=True;  MultipleActiveResultSets=True";
+            //connection = @"Server=(localdb)\MSSQLLocalDB; Database=Sigortam; Persist Security Info=True;  MultipleActiveResultSets=True";
             optionsBuilder.UseSqlServer(connection);
         }
         public DbSet<User> Users { get; set; }
@@ -27,7 +27,9 @@ namespace Sigortam.DAL.Concrete
             modelBuilder.Entity<Entities.Model.User>().Property(p => p.StRuhsatSeriNo)
                .HasMaxLength(50);
             modelBuilder.Entity<Entities.Model.User>().Property(p => p.StTCKN)
-               .HasMaxLength(50);
+               .HasMaxLength(11);
+            modelBuilder.Entity<User>().HasIndex(e => e.StPlaka);
+            modelBuilder.Entity<User>().HasIndex(e => e.StTCKN);
             #endregion
         }
     }
