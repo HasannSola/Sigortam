@@ -29,7 +29,7 @@ namespace Sigortam.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddMvc();
             services.AddScoped<IUserManager, UserManager>();
             services.AddScoped<IUserDal, UserDal>();
         }

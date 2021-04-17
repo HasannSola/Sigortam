@@ -36,6 +36,8 @@ namespace Sigortam.UI.Controllers
                 if (ModelState.IsValid)
                 {
                     result = _userManager.Add(requestModel);
+                    SigortamWcf.SigortamWcfClient sigortamWcfClient = new SigortamWcf.SigortamWcfClient();
+                    var CompanyOfferList = sigortamWcfClient.TeklifHesaplamaAsync(requestModel.StPlaka, requestModel.StTCKN, requestModel.StRuhsatSeriKodu, requestModel.StRuhsatSeriNo).Result;
                     return Json((object)new
                     {
                         data = 0,
@@ -72,7 +74,7 @@ namespace Sigortam.UI.Controllers
                 var user = _userManager.Get(c => c.StPlaka == requestModel.StPlaka && c.StTCKN == requestModel.StTCKN);
                 return Json((object)new
                 {
-                    data = user==null?new User():user,
+                    data = user == null ? new User() : user,
                     success = true,
                     redirectUrl = "",
                 });
